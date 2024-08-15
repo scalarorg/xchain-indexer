@@ -12,9 +12,9 @@ ifeq (,$(VERSION))
   endif
 endif
 
-ARCH := x86_64
+TARGETPLATFORM := linux/amd64
 ifeq ($(shell uname -m), arm64)
-ARCH := aarch64
+TARGETPLATFORM := linux/arm64
 endif
 
 # default value, overide with: make -e FQCN="foo"
@@ -33,7 +33,7 @@ clean:
 
 build-docker:
 	docker build -t $(FQCN) -f ./Dockerfile \
-	--build-arg ARCH=$(ARCH) .
+	--build-arg TARGETPLATFORM=$(TARGETPLATFORM) .
 
 build-docker-amd:
 	docker build -t $(FQCN):$(VERSION) -f ./Dockerfile \

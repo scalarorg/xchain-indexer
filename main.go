@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/scalarorg/xchains-indexer/cmd"
+	"github.com/DefiantLabs/cosmos-indexer/cmd"
 )
 
 func main() {
