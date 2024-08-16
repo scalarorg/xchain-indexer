@@ -17,11 +17,11 @@ import (
 	"github.com/DefiantLabs/cosmos-indexer/parsers"
 	"github.com/DefiantLabs/cosmos-indexer/util"
 	"github.com/DefiantLabs/probe/client"
-	coretypes "github.com/cometbft/cometbft/rpc/core/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/multisig"
 	cryptoTypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	"github.com/cosmos/cosmos-sdk/types"
 	cosmosTx "github.com/cosmos/cosmos-sdk/types/tx"
+	coretypes "github.com/tendermint/tendermint/rpc/core/types"
 	"gorm.io/gorm"
 
 	indexerEvents "github.com/DefiantLabs/cosmos-indexer/cosmos/events"

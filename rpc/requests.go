@@ -3,7 +3,7 @@ package rpc
 import (
 	"time"
 
-	coretypes "github.com/cometbft/cometbft/rpc/core/types"
+	coretypes "github.com/tendermint/tendermint/rpc/core/types"
 
 	"github.com/DefiantLabs/cosmos-indexer/config"
 	probeClient "github.com/DefiantLabs/probe/client"

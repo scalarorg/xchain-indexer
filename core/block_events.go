@@ -3,14 +3,14 @@ package core
 import (
 	"encoding/base64"
 
-	abci "github.com/cometbft/cometbft/abci/types"
+	abci "github.com/tendermint/tendermint/abci/types"
 
 	"github.com/DefiantLabs/cosmos-indexer/config"
 	"github.com/DefiantLabs/cosmos-indexer/db"
 	"github.com/DefiantLabs/cosmos-indexer/db/models"
 	"github.com/DefiantLabs/cosmos-indexer/filter"
 	"github.com/DefiantLabs/cosmos-indexer/parsers"
-	ctypes "github.com/cometbft/cometbft/rpc/core/types"
+	ctypes "github.com/tendermint/tendermint/rpc/core/types"
 )
 
 func ProcessRPCBlockResults(conf config.IndexConfig, block models.Block, blockResults *ctypes.ResultBlockResults, customBeginBlockParsers map[string][]parsers.BlockEventParser, customEndBlockParsers map[string][]parsers.BlockEventParser) (*db.BlockDBWrapper, error) {
@@ -61,12 +61,12 @@ func ProcessRPCBlockEvents(block *models.Block, blockEvents []abci.Event, blockL
 			var keyItem string
 			if conf.Flags.BlockEventsBase64Encoded {
 				// Should we even be decoding these from base64? What are the implications?
-				valueBytes, err := base64.StdEncoding.DecodeString(attribute.Value)
+				valueBytes, err := base64.StdEncoding.DecodeString(string(attribute.Value))
 				if err != nil {
 					return nil, err
 				}
 
-				keyBytes, err := base64.StdEncoding.DecodeString(attribute.Key)
+				keyBytes, err := base64.StdEncoding.DecodeString(string(attribute.Key))
 				if err != nil {
 					return nil, err
 				}
@@ -74,8 +74,8 @@ func ProcessRPCBlockEvents(block *models.Block, blockEvents []abci.Event, blockL
 				value = string(valueBytes)
 				keyItem = string(keyBytes)
 			} else {
-				value = attribute.Value
-				keyItem = attribute.Key
+				value = string(attribute.Value)
+				keyItem = string(attribute.Key)
 			}
 
 			key := models.BlockEventAttributeKey{

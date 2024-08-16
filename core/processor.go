@@ -5,7 +5,7 @@ import (
 
 	"github.com/DefiantLabs/cosmos-indexer/config"
 	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	ctypes "github.com/cometbft/cometbft/rpc/core/types"
+	ctypes "github.com/tendermint/tendermint/rpc/core/types"
 	sdkTypes "github.com/cosmos/cosmos-sdk/types"
 )
 
