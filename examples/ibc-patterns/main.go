@@ -15,7 +15,7 @@ import (
 
 	indexerTxTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
-	chanTypes "github.com/cosmos/ibc-go/v7/modules/core/04-channel/types"
+	chanTypes "github.com/cosmos/ibc-go/v4/modules/core/04-channel/types"
 )
 
 type MsgType int

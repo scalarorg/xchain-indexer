@@ -6,8 +6,8 @@ import (
 
 	"github.com/DefiantLabs/cosmos-indexer/config"
 	txtypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
-	cometAbciTypes "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/types"
+	cometAbciTypes "github.com/tendermint/tendermint/abci/types"
 )
 
 func NormalizedAttributesToAttributes(attrs []txtypes.Attribute) []types.Attribute {
@@ -33,7 +33,7 @@ func AttributesToNormalizedAttributes(attrs []types.Attribute) []txtypes.Attribu
 func EventAttributesToNormalizedAttributes(attrs []cometAbciTypes.EventAttribute) []txtypes.Attribute {
 	list := []txtypes.Attribute{}
 	for _, attr := range attrs {
-		lma := txtypes.Attribute{Key: attr.Key, Value: attr.Value}
+		lma := txtypes.Attribute{Key: string(attr.Key), Value: string(attr.Value)}
 		list = append(list, lma)
 	}
 
