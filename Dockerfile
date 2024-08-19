@@ -1,7 +1,7 @@
 FROM golang:1.19-alpine3.16 AS build-env
 
 # Customize to your build env
-
+ARG PACKAGES="./main.go"
 # TARGETPLATFORM should be one of linux/amd64 or linux/arm64
 ARG TARGETPLATFORM
 
@@ -27,11 +27,11 @@ RUN if  [ "${TARGETPLATFORM}" = "linux/arm64" ] ; then \
 WORKDIR /go/src/app
 COPY . .
 RUN if [ "${TARGETPLATFORM}" = "linux/amd64" ] ; then \
-  GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go install -ldflags ${LD_FLAGS} -tags ${BUILD_TAGS} ; \
+  GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go install -ldflags ${LD_FLAGS} -tags ${BUILD_TAGS} ${PACKAGES} ; \
   fi
 
 RUN if [ "${TARGETPLATFORM}" = "linux/arm64" ] ; then \
-  GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go install -ldflags ${LD_FLAGS} -tags ${BUILD_TAGS} ; \
+  GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go install -ldflags ${LD_FLAGS} -tags ${BUILD_TAGS} ${PACKAGES} ; \
   fi
 
 # Use busybox to create a user
