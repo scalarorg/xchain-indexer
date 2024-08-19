@@ -17,6 +17,9 @@ ifeq ($(shell uname -m), arm64)
 TARGETPLATFORM := linux/arm64
 endif
 
+ifndef $(PACKAGES)
+	PACKAGES := ./main.go
+endif
 # default value, overide with: make -e FQCN="foo"
 # FQCN = ghcr.io/defiantlabs/cosmos-indexer
 FQCN = scalarorg/xchains-indexer
@@ -33,15 +36,18 @@ clean:
 
 build-docker:
 	docker build -t $(FQCN) -f ./Dockerfile \
-	--build-arg TARGETPLATFORM=$(TARGETPLATFORM) .
+	--build-arg TARGETPLATFORM=$(TARGETPLATFORM) \
+	--build-arg PACKAGES=$(PACKAGES) .
 
 build-docker-amd:
 	docker build -t $(FQCN):$(VERSION) -f ./Dockerfile \
-	--build-arg TARGETPLATFORM=linux/amd64 .
+	--build-arg TARGETPLATFORM=linux/amd64 \
+	--build-arg PACKAGES=$(PACKAGES) .
 
 build-docker-arm:
 	docker build -t $(FQCN):$(VERSION) -f ./Dockerfile \
-	--build-arg TARGETPLATFORM=linux/arm64 .
+	--build-arg TARGETPLATFORM=linux/arm64 \
+	--build-arg PACKAGES=$(PACKAGES) .
 
 .PHONY: lint
 lint: ## Run golangci-linter
