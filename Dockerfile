@@ -1,4 +1,4 @@
-FROM golang:1.19-alpine3.16 AS build-env
+FROM golang:1.21-alpine3.18 AS build-env
 
 # Customize to your build env
 ARG PACKAGES="./main.go"

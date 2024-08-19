@@ -2,8 +2,6 @@ module github.com/DefiantLabs/cosmos-indexer
 
 go 1.21
 
-toolchain go1.22.5
-
 require (
 	github.com/DefiantLabs/probe v0.0.0
 	github.com/axelarnetwork/axelar-core v1.0.1
