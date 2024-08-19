@@ -1,0 +1,43 @@
+[log]
+level = "debug"
+path = "./log.txt"
+pretty = true
+
+#App configuration values
+[base]
+start-block = 14895689   # start indexing at beginning of the blockchain, -1 to resume from highest block indexed
+end-block = 14895689   # stop indexing at this block, -1 to never stop indexing
+throttling = 6.00
+block-timer = 10000 #print out how long it takes to process this many blocks
+wait-for-chain = false #if true, indexer will start when the node is caught up to the blockchain
+wait-for-chain-delay = 10 #seconds to wait between each check for node to catch up to the chain
+index-transactions = true #If false, we won't attempt to index the chain
+exit-when-caught-up = true #mainly used for Osmosis rewards indexing
+index-block-events = false #index block events for the particular chain
+dry = false # if true, indexing will occur but data will not be written to the database.
+rpc-workers = 1
+reindex = true
+reattempt-failed-blocks = false
+
+# Provides a filter configuration to skip block events or message types based on patterns
+# filter-file="filter-config.json"
+
+#Lens config options
+[probe]
+# rpc = "https://axelar-rpc.polkachu.com/"
+rpc = "https://axelar-testnet-rpc.qubelabs.io:443/"
+account-prefix = "cosmos"
+chain-id = "cosmoshub-4"
+chain-name = "CosmosHub"
+
+# Flags for extending or modifying the indexed dataset
+[flags]
+index-tx-message-raw=false
+
+[database]
+host = "localhost"
+port = "5452"
+database = "xchains-indexer"
+user = "postgres"
+password = "postgres"
+log-level = ""
