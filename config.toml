@@ -1,12 +1,12 @@
 [log]
 level = "debug"
-path = "./log.txt"
+path = "./indexer.log"
 pretty = true
 
 #App configuration values
 [base]
-start-block = 14895689   # start indexing at beginning of the blockchain, -1 to resume from highest block indexed
-end-block = 14895689   # stop indexing at this block, -1 to never stop indexing
+start-block = 14907544   # start indexing at beginning of the blockchain, -1 to resume from highest block indexed
+end-block = 14907544   # stop indexing at this block, -1 to never stop indexing
 throttling = 6.00
 block-timer = 10000 #print out how long it takes to process this many blocks
 wait-for-chain = false #if true, indexer will start when the node is caught up to the blockchain

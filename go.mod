@@ -216,3 +216,5 @@ require (
 )
 
 replace github.com/DefiantLabs/cosmos-indexer => ./
+
+replace github.com/cosmos/cosmos-sdk => ../../../cosmos-sdk
