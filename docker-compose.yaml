@@ -46,31 +46,31 @@ services:
       - LOG_LEVEL="info"
       - ACCOUNT_PREFIX="scalar"
       - RPC_URL="http://host.docker.internal:26657"
-    entrypoint: ["sleep", "infinity"]  
-    # command:
-    # - /bin/sh
-    # - -c
-    # - |
-    #   cosmos-indexer index \
-    #   --log.pretty=${PRETTY_LOG} \
-    #   --log.level=${LOG_LEVEL} \
-    #   --base.index-transactions=${INDEX_TRANSACTIONS} \
-    #   --base.index-block-events=${INDEX_BLOCK_EVENTS} \
-    #   --base.start-block=${START_BLOCK} \
-    #   --base.end-block=${END_BLOCK} \
-    #   --base.throttling=${THROTTLING} \
-    #   --base.rpc-workers=${RPC_WORKERS} \
-    #   --base.reindex=${REINDEX} \
-    #   --base.reattempt-failed-blocks=false \
-    #   --probe.rpc=${RPC_URL} \
-    #   --probe.account-prefix=${ACCOUNT_PREFIX} \
-    #   --probe.chain-id=${CHAIN_ID} \
-    #   --probe.chain-name=${CHAIN_NAME} \
-    #   --database.host=${POSTGRES_HOST} \
-    #   --database.database=${POSTGRES_DB} \
-    #   --database.user=${POSTGRES_USER} \
-    #   --database.password=${POSTGRES_PASSWORD} \
-    #   ${EXTENDED_ARGS}
+    # entrypoint: ["sleep", "infinity"]  
+    command:
+    - /bin/sh
+    - -c
+    - |
+      cosmos-indexer index \
+      --log.pretty=${PRETTY_LOG} \
+      --log.level=${LOG_LEVEL} \
+      --base.index-transactions=${INDEX_TRANSACTIONS} \
+      --base.index-block-events=${INDEX_BLOCK_EVENTS} \
+      --base.start-block=${START_BLOCK} \
+      --base.end-block=${END_BLOCK} \
+      --base.throttling=${THROTTLING} \
+      --base.rpc-workers=${RPC_WORKERS} \
+      --base.reindex=${REINDEX} \
+      --base.reattempt-failed-blocks=false \
+      --probe.rpc=${RPC_URL} \
+      --probe.account-prefix=${ACCOUNT_PREFIX} \
+      --probe.chain-id=${CHAIN_ID} \
+      --probe.chain-name=${CHAIN_NAME} \
+      --database.host=${POSTGRES_HOST} \
+      --database.database=${POSTGRES_DB} \
+      --database.user=${POSTGRES_USER} \
+      --database.password=${POSTGRES_PASSWORD} \
+      ${EXTENDED_ARGS}
 
 volumes:
   postgres:
