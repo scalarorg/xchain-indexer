@@ -198,6 +198,7 @@ func ProcessRPCTXs(cfg *config.IndexConfig, db *gorm.DB, cl *client.ChainClient,
 
 		currTx := txEventResp.Txs[txIdx]
 		currTxResp := txEventResp.TxResponses[txIdx]
+		config.Log.Debug(fmt.Sprintf("[Block: %v] [TX: %v] Indexing msgs '%v'.", currTxResp.Height, currTxResp.TxHash, currTx.Body.Messages))
 
 		if len(currTxResp.Logs) == 0 && len(currTxResp.Events) != 0 {
 			// We have a version of Cosmos SDK that removed the Logs field from the TxResponse, we need to parse the events into message index logs
@@ -227,7 +228,7 @@ func ProcessRPCTXs(cfg *config.IndexConfig, db *gorm.DB, cl *client.ChainClient,
 				messagesRaw = append(messagesRaw, nil)
 				continue
 			}
-
+			config.Log.Debug(fmt.Sprintf("[Block: %v] [TX: %v] Indexing msg of type '%v'.", currTxResp.Height, currTxResp.TxHash, currTx.Body.Messages[msgIdx].TypeUrl))
 			currMsg := currTx.Body.Messages[msgIdx].GetCachedValue()
 			messagesRaw = append(messagesRaw, currTx.Body.Messages[msgIdx].Value)
 
@@ -237,6 +238,7 @@ func ProcessRPCTXs(cfg *config.IndexConfig, db *gorm.DB, cl *client.ChainClient,
 				var currMsgUnpack types.Msg
 				err := cl.Codec.InterfaceRegistry.UnpackAny(currTx.Body.Messages[msgIdx], &currMsgUnpack)
 				if err != nil || currMsgUnpack == nil {
+					config.Log.Debug(fmt.Sprintf("Error unpacking message: %v", err))
 					return nil, blockTime, fmt.Errorf("tx message could not be processed. Unpacking protos failed and CachedValue is not present. TX Hash: %s, Msg type: %s, Msg index: %d, Code: %d",
 						currTxResp.TxHash,
 						currTx.Body.Messages[msgIdx].TypeUrl,
