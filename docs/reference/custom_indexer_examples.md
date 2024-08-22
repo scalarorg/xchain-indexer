@@ -1,6 +1,6 @@
 # Custom Indexer Examples
 
-The `cosmos-indexer` codebase provides a number of examples in the [examples](https://github.com/DefiantLabs/cosmos-indexer/tree/main/examples) directory. These examples are intended to provide a starting point for building custom indexers using the `cosmos-indexer` codebase as an Indexer SDK.
+The `cosmos-indexer` codebase provides a number of examples in the [examples](https://github.com/scalarorg/xchains-indexer/tree/main/examples) directory. These examples are intended to provide a starting point for building custom indexers using the `cosmos-indexer` codebase as an Indexer SDK.
 
 ## IBC Patterns Example
 

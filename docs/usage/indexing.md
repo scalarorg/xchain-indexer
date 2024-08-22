@@ -39,6 +39,7 @@ The application provides a basic, light-weight Dockerfile and docker-compose set
 After building the application docker configurations as details in [Installation](./installation.md), the application can be run in the following manner:
 
 Docker:
+
 ```bash
 docker run -it <image name> cosmos-indexer index <all flags needed>
 ```
@@ -47,9 +48,9 @@ docker-compose:
 
 1. Fill out the `.env.example` file and change its name to `.env` (or provide the environment variables according to the [Docker Compose docs](https://docs.docker.com/compose/environment-variables/set-environment-variables/#use-the-environment-attribute)).
 2. Bring up the docker-compose:
-    ```
-    docker-compose up
-    ```
+   ```
+   docker-compose up
+   ```
 
 ## Advanced Usage
 
@@ -60,19 +61,17 @@ The application behavior can be changed in different ways based on flags and pro
 A set of specific blocks can be indexed explicitly by providing a block input file.
 
 1. Create a file of block heights like so:
-    * block-heights.json:
 
-    ```json
-    [
-        1,
-        2,
-        3
-    ]
-    ```
+   - block-heights.json:
+
+   ```json
+   [1, 2, 3]
+   ```
+
 2. Provide the block input file to the application with the `--base.block-input-file` flag
-    ```
-    cosmos-indexer index --config="<path to config file>" --base.block-input-file="block-heights.json"
-    ```
+   ```
+   cosmos-indexer index --config="<path to config file>" --base.block-input-file="block-heights.json"
+   ```
 
 All flags specific to which blocks to index will be ignored and the indexer will only index the blocks in the file and then exit.
 
@@ -102,6 +101,6 @@ The application provides extensive customization methods to insert custom behavi
 2. Turning block events or Transaction Messages into custom models
 3. Inserting custom models into the application
 
-For examples see the [examples/](https://github.com/DefiantLabs/cosmos-indexer/tree/main/examples) subfolder in the repository.
+For examples see the [examples/](https://github.com/scalarorg/xchains-indexer/tree/main/examples) subfolder in the repository.
 
 For reference documentation on how to customize the application code to fit your needs, see the [reference](../reference/README.md) documentation.

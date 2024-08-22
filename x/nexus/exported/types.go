@@ -1,7 +1,9 @@
 package exported
 
 import (
+	"encoding/binary"
 	"fmt"
+	"strconv"
 	"strings"
 
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
@@ -34,4 +36,20 @@ func (c ChainName) String() string {
 // Equals returns boolean for whether two chain names are case-insensitive equal
 func (c ChainName) Equals(c2 ChainName) bool {
 	return strings.EqualFold(c.String(), c2.String())
+}
+
+// TransferID represents the unique cross transfer identifier
+type TransferID uint64
+
+// String returns a string representation of TransferID
+func (t TransferID) String() string {
+	return strconv.FormatUint(uint64(t), 10)
+}
+
+// Bytes returns the byte array of TransferID
+func (t TransferID) Bytes() []byte {
+	bz := make([]byte, 8)
+	binary.BigEndian.PutUint64(bz, uint64(t))
+
+	return bz
 }

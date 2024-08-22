@@ -1,9 +1,9 @@
 package probe
 
 import (
-	"github.com/DefiantLabs/cosmos-indexer/config"
 	probeClient "github.com/DefiantLabs/probe/client"
 	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/scalarorg/xchains-indexer/config"
 )
 
 func GetProbeClient(conf config.Probe, appModuleBasicsExtensions []module.AppModuleBasic) *probeClient.ChainClient {

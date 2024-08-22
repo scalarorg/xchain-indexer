@@ -5,17 +5,17 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/DefiantLabs/cosmos-indexer/cmd"
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
+	"github.com/scalarorg/xchains-indexer/cmd"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/parsers"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 
-	indexerTxTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
 	chanTypes "github.com/cosmos/ibc-go/v7/modules/core/04-channel/types"
+	indexerTxTypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
 )
 
 type MsgType int

@@ -4,7 +4,7 @@ The indexer provides multiple installation methods based on preference.
 
 ## Releases
 
-Visit the [Releases](https://github.com/DefiantLabs/cosmos-indexer/releases) page to keep up to date with the latest releases.
+Visit the [Releases](https://github.com/scalarorg/xchains-indexer/releases) page to keep up to date with the latest releases.
 
 ## Building from Source
 
@@ -15,7 +15,6 @@ Prerequisites:
 1. make
 2. Go 1.19+
 3. The repository downloaded
-
 
 From the root of the codebase run:
 
@@ -37,7 +36,6 @@ Prerequisites:
 
 1. Docker
 2. (Optional) docker-compose
-
 
 From the root of the codebase run:
 

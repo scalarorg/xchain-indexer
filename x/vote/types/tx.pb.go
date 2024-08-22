@@ -7,6 +7,7 @@ import (
 	fmt "fmt"
 	types "github.com/cosmos/cosmos-sdk/codec/types"
 	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
+	github_com_axelarnetwork_axelar_core_x_vote_exported "github.com/scalarorg/xchains-indexer/x/vote/exported"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
 	io "io"
@@ -27,7 +28,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type VoteRequest struct {
 	Sender github_com_cosmos_cosmos_sdk_types.AccAddress               `protobuf:"bytes,1,opt,name=sender,proto3,casttype=github.com/cosmos/cosmos-sdk/types.AccAddress" json:"sender,omitempty"`
-	PollID PollID `protobuf:"varint,4,opt,name=poll_id,json=pollId,proto3,customtype=github.com/axelarnetwork/axelar-core/x/vote/exported.PollID" json:"poll_id"`
+	PollID github_com_axelarnetwork_axelar_core_x_vote_exported.PollID `protobuf:"varint,4,opt,name=poll_id,json=pollId,proto3,customtype=github.com/axelarnetwork/axelar-core/x/vote/exported.PollID" json:"poll_id"`
 	Vote   *types.Any                                                  `protobuf:"bytes,5,opt,name=vote,proto3" json:"vote,omitempty"`
 }
 
@@ -343,7 +344,7 @@ func (m *VoteRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.PollID |= PollID(b&0x7F) << shift
+				m.PollID |= github_com_axelarnetwork_axelar_core_x_vote_exported.PollID(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}

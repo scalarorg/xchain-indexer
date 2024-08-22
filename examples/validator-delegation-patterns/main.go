@@ -5,18 +5,18 @@ import (
 	"log"
 	"time"
 
-	"github.com/DefiantLabs/cosmos-indexer/cmd"
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
+	"github.com/scalarorg/xchains-indexer/cmd"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/parsers"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 
-	indexerTxTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
-	dbTypes "github.com/DefiantLabs/cosmos-indexer/db"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
 	stakingTypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	indexerTxTypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
+	dbTypes "github.com/scalarorg/xchains-indexer/db"
 )
 
 // This defines the custom message parser for the delegation and undelegation message type

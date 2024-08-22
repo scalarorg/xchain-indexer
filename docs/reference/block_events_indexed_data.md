@@ -126,7 +126,7 @@ The application applies the term **Block Event Windows** to this concept.
 
 ## Indexing Block Events
 
-The application indexes block events into a well-structured data shape. For implementation details, see the [block.go](ttps://github.com/DefiantLabs/cosmos-indexer/blob/main/db/models/block.go) file in the models package.
+The application indexes block events into a well-structured data shape. For implementation details, see the [block.go](ttps://github.com/scalarorg/xchains-indexer/blob/main/db/models/block.go) file in the models package.
 
 The indexed dataset has the following general overview:
 

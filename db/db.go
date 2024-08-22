@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/parsers"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

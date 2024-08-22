@@ -5,15 +5,15 @@ import (
 	"errors"
 	"log"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	indexerTxTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/indexer"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
-	common "github.com/scalarorg/xchains-indexer/customs/scalar/common"
-	voterequest "github.com/scalarorg/xchains-indexer/customs/scalar/vote_request"
+	"github.com/scalarorg/xchains-indexer/config"
+	indexerTxTypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
+	common "github.com/scalarorg/xchains-indexer/customs/xchains/common"
+	voterequest "github.com/scalarorg/xchains-indexer/customs/xchains/vote_request"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/indexer"
+	"github.com/scalarorg/xchains-indexer/parsers"
 	rewardTypes "github.com/scalarorg/xchains-indexer/x/reward/types"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -100,7 +100,7 @@ func (p *RefundMsgRequestParser) IndexMessage(dataset *any, db *gorm.DB, message
 	jsonValue, err := json.Marshal(parsedMessageEvent)
 	if err == nil {
 		txMessage := common.TxMessage{
-			TxID:          message.Tx.ID,
+			Tx:            message.Tx,
 			MessageID:     message.ID,
 			BlockId:       message.Tx.BlockID,
 			MessageDetail: string(jsonValue),
@@ -112,8 +112,6 @@ func (p *RefundMsgRequestParser) IndexMessage(dataset *any, db *gorm.DB, message
 		}).Create(&txMessage).Error
 		if err != nil {
 			config.Log.Debugf("RefundMsgRequestParser# Failed to save message event %v", err)
-		} else {
-			config.Log.Debugf("RefundMsgRequestParser# Store txMessage successfully %s", string(jsonValue))
 		}
 	} else {
 		config.Log.Debugf("RefundMsgRequestParser# Failed to marshal message event %v", err)

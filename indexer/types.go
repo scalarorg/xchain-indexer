@@ -1,14 +1,14 @@
 package indexer
 
 import (
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/core"
-	dbTypes "github.com/DefiantLabs/cosmos-indexer/db"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
 	"github.com/DefiantLabs/probe/client"
 	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/core"
+	dbTypes "github.com/scalarorg/xchains-indexer/db"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/parsers"
 	"gorm.io/gorm"
 )
 

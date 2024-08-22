@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
 	"github.com/ory/dockertest/v3"
+	"github.com/scalarorg/xchains-indexer/db/models"
 	"github.com/stretchr/testify/suite"
 	"gorm.io/gorm"
 )

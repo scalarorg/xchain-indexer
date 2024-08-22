@@ -3,9 +3,9 @@ package indexer
 import (
 	"sync"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/core"
-	dbTypes "github.com/DefiantLabs/cosmos-indexer/db"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/core"
+	dbTypes "github.com/scalarorg/xchains-indexer/db"
 )
 
 // This function is responsible for processing raw RPC data into app-usable types. It handles both block events and transactions.

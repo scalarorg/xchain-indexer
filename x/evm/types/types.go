@@ -7,9 +7,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"strconv"
+	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	utils "github.com/scalarorg/xchains-indexer/util"
 )
@@ -238,5 +241,41 @@ func (c *CommandID) Unmarshal(data []byte) error {
 
 // ValidateBasic returns an error if the given command ID is invalid
 func (c CommandID) ValidateBasic() error {
+	return nil
+}
+
+// EventID ensures a correctly formatted event ID
+type EventID string
+
+// NewEventID returns a new event ID
+func NewEventID(txID Hash, index uint64) EventID {
+	return EventID(fmt.Sprintf("%s-%d", txID.Hex(), index))
+}
+
+// Validate returns an error, if the event ID is not in format of txID-index
+func (id EventID) Validate() error {
+	if err := utils.ValidateString(string(id)); err != nil {
+		return err
+	}
+
+	arr := strings.Split(string(id), "-")
+	if len(arr) != 2 {
+		return fmt.Errorf("event ID should be in foramt of txID-index")
+	}
+
+	bz, err := hexutil.Decode(arr[0])
+	if err != nil {
+		return sdkerrors.Wrap(err, "invalid tx hash hex encoding")
+	}
+
+	if len(bz) != common.HashLength {
+		return fmt.Errorf("invalid tx hash length")
+	}
+
+	_, err = strconv.ParseInt(arr[1], 10, 64)
+	if err != nil {
+		return sdkerrors.Wrap(err, "invalid index")
+	}
+
 	return nil
 }

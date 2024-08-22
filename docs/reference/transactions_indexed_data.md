@@ -43,8 +43,8 @@ Transaction messages have the following data shape:
 
 ```json
 {
-    "type_url": "<message type url>",
-    "value": "<protobuf encoded message>"
+  "type_url": "<message type url>",
+  "value": "<protobuf encoded message>"
 }
 ```
 
@@ -71,7 +71,7 @@ The event data shape is as follows:
 
 ## Indexing Transactions and Messages
 
-The application indexes transactions and their messages into a well-structured data shape. For implementation details, see the [transactions.go](https://github.com/DefiantLabs/cosmos-indexer/blob/main/db/models/tx.go) file in the models package.
+The application indexes transactions and their messages into a well-structured data shape. For implementation details, see the [transactions.go](https://github.com/scalarorg/xchains-indexer/blob/main/db/models/tx.go) file in the models package.
 
 The indexed dataset has the following general overview:
 
@@ -80,8 +80,8 @@ The indexed dataset has the following general overview:
    2. Transaction Signers are indexed per Transaction
 2. Messages are indexed per Transaction
    1. Each message is indexed with the following data:
-       - `type_url`: The type of message that was executed
-       - `value`: The protobuf encoded message
+      - `type_url`: The type of message that was executed
+      - `value`: The protobuf encoded message
 3. Message Events are indexed per Message
 4. Message Event Attributes are indexed per Message Event
 

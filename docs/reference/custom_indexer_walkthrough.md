@@ -14,7 +14,7 @@ The workflow for building custom parsers has the following overview:
 
 The code examples in this section will build up a custom parser for a hypothetical custom parser for IBC Transactions.
 
-The example indexer for this walkthrough can be found in the [examples/ibc-patterns](https://github.com/DefiantLabs/cosmos-indexer/tree/main/examples/ibc-patterns) directory.
+The example indexer for this walkthrough can be found in the [examples/ibc-patterns](https://github.com/scalarorg/xchains-indexer/tree/main/examples/ibc-patterns) directory.
 
 ## Step 1 - Creating a New `main.go` File and Importing the `cosmos-indexer` Package
 
@@ -26,7 +26,7 @@ package main
 import (
 	"log"
 
-	"github.com/DefiantLabs/cosmos-indexer/cmd"
+	"github.com/scalarorg/xchains-indexer/cmd"
 )
 
 func main() {
@@ -60,8 +60,8 @@ This function takes an array of `any`, appending the items to the list of `any` 
 import (
 	"log"
 
-	"github.com/DefiantLabs/cosmos-indexer/cmd"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/cmd"
+	"github.com/scalarorg/xchains-indexer/db/models"
 )
 
 type MsgType int
@@ -167,9 +167,9 @@ To determine the type of transaction at runtime, we take advantage of the Cosmos
 import (
 
 	//Updated imports for the ParseMessage command
-	"github.com/DefiantLabs/cosmos-indexer/config"
+	"github.com/scalarorg/xchains-indexer/config"
 
-	indexerTxTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
+	indexerTxTypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
 	chanTypes "github.com/cosmos/ibc-go/v7/modules/core/04-channel/types"
 )
@@ -220,7 +220,7 @@ type IBCTransactionParsedData struct {
 }
 ```
 
-This will be the `any` value returned from the `parseMsgAcknowledgement` and `parseMsgRecvPacket` functions if they do not return an error. For brevity, the implementation details for these 2 functions will be left out of this walkthrough. The full implementation can be found in the [examples/ibc-patterns](https://github.com/DefiantLabs/cosmos-indexer/tree/main/examples/ibc-patterns) directory. To summarize the implementations, the functions will parse out the message data to determine the basic IBC source/destination types, and then parse out the packet data to determine the type of IBC message.
+This will be the `any` value returned from the `parseMsgAcknowledgement` and `parseMsgRecvPacket` functions if they do not return an error. For brevity, the implementation details for these 2 functions will be left out of this walkthrough. The full implementation can be found in the [examples/ibc-patterns](https://github.com/scalarorg/xchains-indexer/tree/main/examples/ibc-patterns) directory. To summarize the implementations, the functions will parse out the message data to determine the basic IBC source/destination types, and then parse out the packet data to determine the type of IBC message.
 
 ### Implement the IndexMessage Function
 
@@ -233,12 +233,12 @@ This function, when called on the parser, is wrapped in a database transaction t
 import (
 
 	//Updated imports for the IndexMessage command
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/parsers"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 
-	indexerTxTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
+	indexerTxTypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
 	chanTypes "github.com/cosmos/ibc-go/v7/modules/core/04-channel/types"
 )
@@ -334,7 +334,7 @@ This function also sets up parser trackers that will track the execution of the 
 
 The `cosmos-indexer` application allows for message type filters to be registered with the indexer. These filters are used to filter out transaction messages that should not be indexed. The `RegisterMessageTypeFilter` function on the `Indexer` instance is used to register message type filters.
 
-This function expects a filter type that satisfies the [filter package's](https://github.com/DefiantLabs/cosmos-indexer/tree/main/filter) `MessageTypeFilter` interface. The filter type is used to filter out transaction messages that should not be indexed. There are a few built in Message Type Filters that can be used to filter out messages. Our example uses the `MessageTypeRegexFilter` to filter out messages that do not match the regex pattern.
+This function expects a filter type that satisfies the [filter package's](https://github.com/scalarorg/xchains-indexer/tree/main/filter) `MessageTypeFilter` interface. The filter type is used to filter out transaction messages that should not be indexed. There are a few built in Message Type Filters that can be used to filter out messages. Our example uses the `MessageTypeRegexFilter` to filter out messages that do not match the regex pattern.
 
 ```go
 func main() {
@@ -365,6 +365,7 @@ func main(){
 	}
 }
 ```
+
 ## Conclusion
 
-This walkthrough has shown how to create a custom parser for IBC transactions. To see the full end-to-end implementation of this custom indexer, check out the [examples/ibc-patterns](https://github.com/DefiantLabs/cosmos-indexer/tree/main/examples/ibc-patterns) directory.
+This walkthrough has shown how to create a custom parser for IBC transactions. To see the full end-to-end implementation of this custom indexer, check out the [examples/ibc-patterns](https://github.com/scalarorg/xchains-indexer/tree/main/examples/ibc-patterns) directory.

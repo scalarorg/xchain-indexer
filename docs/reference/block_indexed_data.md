@@ -28,7 +28,7 @@ The Block database model is used in 2 general ways:
 1. Indexing the block data from the blockchain
 2. Tracking the workflow of the application as it indexes blocks
 
-For this reason, the block model contains a few, small complexities that enable the application to track the progress of the blockchain and the application's workflow in one location. See the [block.go](ttps://github.com/DefiantLabs/cosmos-indexer/blob/main/db/models/block.go) for more information.
+For this reason, the block model contains a few, small complexities that enable the application to track the progress of the blockchain and the application's workflow in one location. See the [block.go](ttps://github.com/scalarorg/xchains-indexer/blob/main/db/models/block.go) for more information.
 
 ### Chain Model Extension
 

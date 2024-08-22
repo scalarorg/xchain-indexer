@@ -8,12 +8,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	dbTypes "github.com/DefiantLabs/cosmos-indexer/db"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/rpc"
-	"github.com/DefiantLabs/cosmos-indexer/util"
 	"github.com/DefiantLabs/probe/client"
+	"github.com/scalarorg/xchains-indexer/config"
+	dbTypes "github.com/scalarorg/xchains-indexer/db"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/rpc"
+	"github.com/scalarorg/xchains-indexer/util"
 	"gorm.io/gorm"
 )
 

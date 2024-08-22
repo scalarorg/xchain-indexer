@@ -3,12 +3,12 @@ package common
 import (
 	"fmt"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	txTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
 	"github.com/DefiantLabs/probe/client"
 	types "github.com/cosmos/cosmos-sdk/codec/types"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
+	"github.com/scalarorg/xchains-indexer/config"
+	txTypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
+	"github.com/scalarorg/xchains-indexer/parsers"
 )
 
 type IAnyMessageParser interface {

@@ -1,8 +1,8 @@
 package db
 
 import (
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/db/models"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 )
