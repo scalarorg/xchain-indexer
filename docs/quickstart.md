@@ -4,7 +4,7 @@ This guide will help you get up and running with the Cosmos Indexer quickly. The
 
 ## Installation
 
-Download the latest release from the [Releases](https://github.com/DefiantLabs/cosmos-indexer/releases) page.
+Download the latest release from the [Releases](https://github.com/scalarorg/xchains-indexer/releases) page.
 
 ## Configuration
 

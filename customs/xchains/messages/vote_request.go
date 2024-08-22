@@ -1,20 +1,20 @@
-package voterequest
+package messages
 
 import (
 	"errors"
 	"fmt"
 	"log"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	txTypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/indexer"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
 	"github.com/DefiantLabs/probe/client"
 	codecTypes "github.com/cosmos/cosmos-sdk/codec/types"
 	stdTypes "github.com/cosmos/cosmos-sdk/types"
-	"github.com/scalarorg/xchains-indexer/customs/scalar/common"
+	"github.com/scalarorg/xchains-indexer/config"
+	txTypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
+	"github.com/scalarorg/xchains-indexer/customs/xchains/common"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/indexer"
+	"github.com/scalarorg/xchains-indexer/parsers"
 	evmTypes "github.com/scalarorg/xchains-indexer/x/evm/types"
 	"github.com/scalarorg/xchains-indexer/x/vote/types"
 	"gorm.io/gorm"

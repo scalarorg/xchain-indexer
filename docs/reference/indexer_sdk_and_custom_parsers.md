@@ -14,7 +14,7 @@ Certain changes made to the indexer type will be persisted when calling the `ind
 
 ## Custom Type Registration
 
-The `Indexer` type provides registration functions that will modify the behavior of the indexer. The following registration functions are available on the `Indexer` type in the [registration.go file](https://github.com/DefiantLabs/cosmos-indexer/blob/30f689fc4914f41cb5b7599a9e6ef730d71a7c3d/indexer/registration.go) in the `indexer` package:
+The `Indexer` type provides registration functions that will modify the behavior of the indexer. The following registration functions are available on the `Indexer` type in the [registration.go file](https://github.com/scalarorg/xchains-indexer/blob/30f689fc4914f41cb5b7599a9e6ef730d71a7c3d/indexer/registration.go) in the `indexer` package:
 
 1. `RegisterCustomModuleBasics` - Registers custom module basics for the chain, used for injecting custom Cosmos SDK modules into the Codec for the chain to allow RPC parsing of custom module transaction messages
 2. `RegisterMessageTypeFilter` - Registers a message type filter for the chain, used for filtering out transaction messages that should not be indexed. Allows SDK access to the UX-provided message type filter described in the [filtering](../usage/filtering.md) documentation
@@ -27,7 +27,7 @@ When these functions are called before the `index` command is executed, the cust
 
 ## Custom Parser Interfaces
 
-The `cosmos-indexer` application provides interfaces for custom parsers to implement. These interfaces are used by the indexer to call custom parsing functions during the indexing workflow. You can find the definitions of the interfaces in the [parsers package](https://github.com/DefiantLabs/cosmos-indexer/tree/main/parsers).There are 2 types of custom parser interfaces available in the application:
+The `cosmos-indexer` application provides interfaces for custom parsers to implement. These interfaces are used by the indexer to call custom parsing functions during the indexing workflow. You can find the definitions of the interfaces in the [parsers package](https://github.com/scalarorg/xchains-indexer/tree/main/parsers).There are 2 types of custom parser interfaces available in the application:
 
 1. `BlockEventParser` - Used for parsing block events into custom data types
 2. `MessageParser` - Used for parsing transaction messages into custom data types

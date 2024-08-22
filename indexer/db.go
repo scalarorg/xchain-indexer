@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	dbTypes "github.com/DefiantLabs/cosmos-indexer/db"
+	"github.com/scalarorg/xchains-indexer/config"
+	dbTypes "github.com/scalarorg/xchains-indexer/db"
 )
 
 // doDBUpdates will read the data out of the db data chan that had been processed by the workers

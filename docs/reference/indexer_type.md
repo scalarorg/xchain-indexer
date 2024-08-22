@@ -2,7 +2,7 @@
 
 The `Indexer` type is the main controller for the indexer behavior. It is responsible for managing the indexer workflow and the underlying components that make up the indexer.
 
-For full implementation details, see the [indexer package](https://github.com/DefiantLabs/cosmos-indexer/tree/main/indexer)
+For full implementation details, see the [indexer package](https://github.com/scalarorg/xchains-indexer/tree/main/indexer)
 
 ## Indexer Type and `index` Command Instantiation
 
@@ -57,7 +57,7 @@ At runtime, the `BlockEnqueueFunction` is called with a channel of `core.Enqueue
 
 This allows for various developer overrides of which blocks should be processed during the indexing workflow.
 
-For examples of in-application block enqueue functions see the [core package block_enqueue.go](https://github.com/DefiantLabs/cosmos-indexer/blob/main/core/block_enqueue.go) file. The functions in this package return closures that define highly customized block enqueue functions. These are the built-in block enqueue functions that can be triggered by various configuration variables.
+For examples of in-application block enqueue functions see the [core package block_enqueue.go](https://github.com/scalarorg/xchains-indexer/blob/main/core/block_enqueue.go) file. The functions in this package return closures that define highly customized block enqueue functions. These are the built-in block enqueue functions that can be triggered by various configuration variables.
 
 ## DB Instance - Gorm Database Connection to PostgreSQL and Modification
 

@@ -7,14 +7,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/core"
-	dbTypes "github.com/DefiantLabs/cosmos-indexer/db"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	indexerPackage "github.com/DefiantLabs/cosmos-indexer/indexer"
-	"github.com/DefiantLabs/cosmos-indexer/probe"
-	"github.com/DefiantLabs/cosmos-indexer/rpc"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/core"
+	dbTypes "github.com/scalarorg/xchains-indexer/db"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	indexerPackage "github.com/scalarorg/xchains-indexer/indexer"
+	"github.com/scalarorg/xchains-indexer/probe"
+	"github.com/scalarorg/xchains-indexer/rpc"
 	"github.com/spf13/cobra"
 )
 

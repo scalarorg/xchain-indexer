@@ -1,10 +1,10 @@
 package parsers
 
 import (
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	txtypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
 	sdkTypes "github.com/cosmos/cosmos-sdk/types"
+	"github.com/scalarorg/xchains-indexer/config"
+	txtypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
+	"github.com/scalarorg/xchains-indexer/db/models"
 	"gorm.io/gorm"
 )
 

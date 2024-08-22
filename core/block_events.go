@@ -5,12 +5,12 @@ import (
 
 	abci "github.com/cometbft/cometbft/abci/types"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/db"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
 	ctypes "github.com/cometbft/cometbft/rpc/core/types"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/db"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/parsers"
 )
 
 func ProcessRPCBlockResults(conf config.IndexConfig, block models.Block, blockResults *ctypes.ResultBlockResults, customBeginBlockParsers map[string][]parsers.BlockEventParser, customEndBlockParsers map[string][]parsers.BlockEventParser) (*db.BlockDBWrapper, error) {
@@ -39,7 +39,6 @@ func ProcessRPCBlockResults(conf config.IndexConfig, block models.Block, blockRe
 
 func ProcessRPCBlockEvents(block *models.Block, blockEvents []abci.Event, blockLifecyclePosition models.BlockLifecyclePosition, uniqueEventTypes map[string]models.BlockEventType, uniqueAttributeKeys map[string]models.BlockEventAttributeKey, customParsers map[string][]parsers.BlockEventParser, conf config.IndexConfig) ([]db.BlockEventDBWrapper, error) {
 	beginBlockEvents := make([]db.BlockEventDBWrapper, len(blockEvents))
-
 	for index, event := range blockEvents {
 		eventType := models.BlockEventType{
 			Type: event.Type,

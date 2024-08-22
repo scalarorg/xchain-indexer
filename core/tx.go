@@ -9,22 +9,22 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	txtypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
-	dbTypes "github.com/DefiantLabs/cosmos-indexer/db"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
-	"github.com/DefiantLabs/cosmos-indexer/util"
 	"github.com/DefiantLabs/probe/client"
 	coretypes "github.com/cometbft/cometbft/rpc/core/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/multisig"
 	cryptoTypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	"github.com/cosmos/cosmos-sdk/types"
 	cosmosTx "github.com/cosmos/cosmos-sdk/types/tx"
+	"github.com/scalarorg/xchains-indexer/config"
+	txtypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
+	dbTypes "github.com/scalarorg/xchains-indexer/db"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/parsers"
+	"github.com/scalarorg/xchains-indexer/util"
 	"gorm.io/gorm"
 
-	indexerEvents "github.com/DefiantLabs/cosmos-indexer/cosmos/events"
+	indexerEvents "github.com/scalarorg/xchains-indexer/cosmos/events"
 )
 
 func getUnexportedField(field reflect.Value) interface{} {

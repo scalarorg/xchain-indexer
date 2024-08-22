@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	txtypes "github.com/DefiantLabs/cosmos-indexer/cosmos/modules/tx"
 	cometAbciTypes "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/types"
+	"github.com/scalarorg/xchains-indexer/config"
+	txtypes "github.com/scalarorg/xchains-indexer/cosmos/modules/tx"
 )
 
 func NormalizedAttributesToAttributes(attrs []txtypes.Attribute) []types.Attribute {

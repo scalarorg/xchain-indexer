@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/DefiantLabs/cosmos-indexer/util"
+	"github.com/scalarorg/xchains-indexer/util"
 	"github.com/spf13/cobra"
 )
 

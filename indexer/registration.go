@@ -3,11 +3,11 @@ package indexer
 import (
 	"fmt"
 
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
-	"github.com/DefiantLabs/cosmos-indexer/filter"
-	"github.com/DefiantLabs/cosmos-indexer/parsers"
 	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/db/models"
+	"github.com/scalarorg/xchains-indexer/filter"
+	"github.com/scalarorg/xchains-indexer/parsers"
 )
 
 func (indexer *Indexer) RegisterCustomModuleBasics(basics []module.AppModuleBasic) {

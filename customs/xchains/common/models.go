@@ -1,5 +1,7 @@
 package common
 
+import "github.com/scalarorg/xchains-indexer/db/models"
+
 type MsgType int
 
 const (
@@ -13,4 +15,5 @@ type TxMessage struct {
 	MessageID     uint `gorm:"uniqueIndex:txMessageIndex,priority:2"`
 	BlockId       uint
 	MessageDetail string
+	Tx            models.Tx `gorm:"foreignKey:TxID;references:ID"`
 }

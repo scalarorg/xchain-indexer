@@ -21,7 +21,7 @@ ifndef $(PACKAGES)
 	PACKAGES := ./main.go
 endif
 # default value, overide with: make -e FQCN="foo"
-# FQCN = ghcr.io/defiantlabs/cosmos-indexer
+# FQCN = ghcr.io/scalarorg/xchains-indexer
 FQCN = scalarorg/xchains-indexer
 all: install
 

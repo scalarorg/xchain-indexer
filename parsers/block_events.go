@@ -1,9 +1,9 @@
 package parsers
 
 import (
-	"github.com/DefiantLabs/cosmos-indexer/config"
-	"github.com/DefiantLabs/cosmos-indexer/db/models"
 	abci "github.com/cometbft/cometbft/abci/types"
+	"github.com/scalarorg/xchains-indexer/config"
+	"github.com/scalarorg/xchains-indexer/db/models"
 	"gorm.io/gorm"
 )
 

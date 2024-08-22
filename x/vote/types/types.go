@@ -4,8 +4,6 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
-type PollID uint64
-
 var _ sdk.Msg = &VoteRequest{}
 
 const MSG_VOTE_REQUEST = "axelar.vote.v1beta1.VoteRequest"
