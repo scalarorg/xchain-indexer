@@ -212,4 +212,4 @@ require (
 
 replace github.com/scalarorg/xchains-indexer => ./
 
-replace github.com/cosmos/cosmos-sdk => ../../../cosmos-sdk
+// replace github.com/cosmos/cosmos-sdk => ../../../cosmos-sdk
