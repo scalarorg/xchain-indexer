@@ -42,6 +42,10 @@ func (p *XChainsContractCallApprovedEventParser) ParseBlockEvent(event abci.Even
 			value = attribute.Value
 			keyItem = attribute.Key
 		}
+		// if keyItem == "command_id" {
+		// 	commandId := common.ParseAttributeValue(value).(string)
+
+		// }
 		config.Log.Debugf("Attributes# Key: %s, Value: %s, Index %t", keyItem, value, attribute.GetIndex())
 
 	}
