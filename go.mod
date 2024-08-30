@@ -7,6 +7,7 @@ require github.com/ethereum/go-ethereum v1.10.26
 require (
 	cosmossdk.io/math v1.2.0
 	github.com/DefiantLabs/probe v0.0.0-20240402041649-8df4799d9ebc
+	github.com/btcsuite/btcd/btcec/v2 v2.3.2
 	github.com/cometbft/cometbft v0.37.4
 	github.com/cosmos/cosmos-sdk v0.47.7
 	github.com/cosmos/ibc-go/v7 v7.3.1
@@ -55,7 +56,6 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 	github.com/bgentry/speakeasy v0.1.1-0.20220910012023-760eaf8b6816 // indirect
-	github.com/btcsuite/btcd/btcec/v2 v2.3.2 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.3 // indirect
 	github.com/cespare/xxhash v1.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
@@ -212,6 +212,6 @@ require (
 
 replace github.com/scalarorg/xchains-indexer => ./
 
-replace github.com/cosmos/cosmos-sdk => ../../../cosmos-sdk
+// replace github.com/cosmos/cosmos-sdk => ../../../cosmos-sdk
 
 replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1

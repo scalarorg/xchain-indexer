@@ -29,7 +29,7 @@ install: go.sum
 	go install .
 
 build:
-	go build -o bin/cosmos-indexer .
+	go build -o bin/xchains-indexer .
 
 clean:
 	rm -rf build
