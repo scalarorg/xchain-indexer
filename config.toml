@@ -8,9 +8,9 @@ pretty = true
 # start-block = 14907544   # start indexing at beginning of the blockchain, -1 to resume from highest block indexed
 # end-block = 14938581   # stop indexing at this block, -1 to never stop indexing
 
-# For ContractCall, MessageProcessing, MessageExecuted Event 
-start-block = 14907818
-end-block = 14907819
+# for debug 0xb7079cb88239bd68c021ef916785431430f861b6928a4b69ea586704783d6256-3
+start-block = 15032350
+end-block = -1
 
 throttling = 6.00
 block-timer = 10000 #print out how long it takes to process this many blocks
@@ -32,8 +32,8 @@ reattempt-failed-blocks = false
 # rpc = "https://axelar-rpc.polkachu.com/"
 rpc = "https://axelar-testnet-rpc.qubelabs.io:443/"
 account-prefix = "cosmos"
-chain-id = "cosmoshub-4"
-chain-name = "CosmosHub"
+chain-id = "scalar-testnet-4"
+chain-name = "ScalarXchains"
 
 # Flags for extending or modifying the indexed dataset
 [flags]
