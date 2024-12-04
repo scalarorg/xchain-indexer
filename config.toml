@@ -9,7 +9,9 @@ pretty = true
 # end-block = 14938581   # stop indexing at this block, -1 to never stop indexing
 
 # for debug 0xb7079cb88239bd68c021ef916785431430f861b6928a4b69ea586704783d6256-3
-start-block = 15032350
+# start-block = 15032350
+# start-block = 16300955 # for axelar-testnet-rpc.qubelabs
+start-block = 1
 end-block = -1
 
 throttling = 6.00
@@ -29,8 +31,11 @@ reattempt-failed-blocks = false
 
 #Lens config options
 [probe]
-# rpc = "https://axelar-rpc.polkachu.com/"
-rpc = "https://axelar-testnet-rpc.qubelabs.io:443/"
+# rpc = "https://axelar-rpc.polkachu.com:443/"
+# rpc = "https://axelar-testnet-rpc.qubelabs.io:443/"
+# rpc = "https://axelar.drpc.org" # This is the official axelar chain, but it is not free
+# rpc = "http://localhost:26657" # This is the local core
+rpc = "http://node.testnet.scalar.org" # This is the testnet core node
 account-prefix = "cosmos"
 chain-id = "scalar-testnet-4"
 chain-name = "ScalarXchains"
@@ -43,7 +48,7 @@ block-events-base64-encoded=true
 [database]
 host = "localhost"
 port = "5452"
-database = "xchains-indexer"
+database = "xchains_indexer"
 user = "postgres"
 password = "postgres"
 log-level = ""
