@@ -6,6 +6,7 @@ import (
 
 type Block struct {
 	ID                    uint
+	Hash                  string
 	TimeStamp             time.Time
 	Height                int64 `gorm:"uniqueIndex:chainheight"`
 	ChainID               uint  `gorm:"uniqueIndex:chainheight"`

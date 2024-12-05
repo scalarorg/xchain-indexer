@@ -28,6 +28,7 @@ func ProcessBlock(blockData *ctypes.ResultBlock, blockResultsData *ctypes.Result
 	block := models.Block{
 		Height:  blockData.Block.Height,
 		ChainID: chainID,
+		Hash:    blockData.BlockID.Hash.String(),
 	}
 
 	propAddressFromHex, err := sdkTypes.ConsAddressFromHex(blockData.Block.ProposerAddress.String())
