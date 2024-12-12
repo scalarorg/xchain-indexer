@@ -21,7 +21,7 @@ import (
 	"github.com/scalarorg/xchains-indexer/db/models"
 	"github.com/scalarorg/xchains-indexer/filter"
 	"github.com/scalarorg/xchains-indexer/parsers"
-	"github.com/scalarorg/xchains-indexer/util"
+	"github.com/scalarorg/xchains-indexer/utils"
 	"gorm.io/gorm"
 
 	indexerEvents "github.com/scalarorg/xchains-indexer/cosmos/events"
@@ -92,7 +92,7 @@ func ProcessRPCBlockByHeightTXs(cfg *config.IndexConfig, db *gorm.DB, cl *client
 
 		// Get the Messages and Message Logs
 		for msgIdx := range txFull.Body.Messages {
-
+			config.Log.Debug(fmt.Sprintf("Processing message type: %v", txFull.Body.Messages[msgIdx].TypeUrl))
 			shouldIndex, err := messageTypeShouldIndex(txFull.Body.Messages[msgIdx].TypeUrl, messageTypeFilters, customParsers)
 			if err != nil {
 				return nil, blockTime, err
@@ -109,6 +109,12 @@ func ProcessRPCBlockByHeightTXs(cfg *config.IndexConfig, db *gorm.DB, cl *client
 			}
 
 			currMsg := txFull.Body.Messages[msgIdx].GetCachedValue()
+			config.Log.Debug(fmt.Sprintf("--- currMsg getCachedValue: %v\n", currMsg))
+
+			if currMsg == nil {
+				config.Log.Errorf("Failed to process message at index %d in transaction %s. Message type: %s", msgIdx, tendermintHashToHex(txHash), txFull.Body.Messages[msgIdx].TypeUrl)
+				return nil, blockTime, fmt.Errorf("tx message could not be processed")
+			}
 
 			if currMsg != nil {
 				msg := currMsg.(types.Msg)
@@ -482,7 +488,7 @@ func ProcessFees(db *gorm.DB, authInfo cosmosTx.AuthInfo, signers []models.Addre
 		zeroFee := big.NewInt(0)
 
 		if zeroFee.Cmp(coin.Amount.BigInt()) != 0 {
-			amount := util.ToNumeric(coin.Amount.BigInt())
+			amount := utils.ToNumeric(coin.Amount.BigInt())
 			denom := models.Denom{Base: coin.Denom}
 
 			payerAddr := models.Address{}

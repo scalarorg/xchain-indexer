@@ -10,8 +10,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"golang.org/x/exp/maps"
 
-	utils "github.com/scalarorg/xchains-indexer/util"
-	slices "github.com/scalarorg/xchains-indexer/util/slices"
+	utils "github.com/scalarorg/xchains-indexer/utils"
+	slices "github.com/scalarorg/xchains-indexer/utils/slices"
 )
 
 //go:generate moq -out ./mock/types.go -pkg mock . ValidatorI

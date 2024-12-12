@@ -9,6 +9,7 @@ import (
 	"github.com/scalarorg/xchains-indexer/indexer"
 	"github.com/scalarorg/xchains-indexer/parsers"
 	evmTypes "github.com/scalarorg/xchains-indexer/x/evm/types"
+	nexusTypes "github.com/scalarorg/xchains-indexer/x/nexus/types"
 	rewardTypes "github.com/scalarorg/xchains-indexer/x/reward/types"
 	voteTypes "github.com/scalarorg/xchains-indexer/x/vote/types"
 )
@@ -20,6 +21,15 @@ const (
 func ExtendMessagesIndexer(instance *indexer.Indexer) error {
 	var filters []filter.MessageTypeFilter
 	customParsers := make(map[string]parsers.MessageParser)
+
+	// basic
+	basicRegexMessageTypeFilter, err := filter.NewRegexMessageTypeFilter("^/" + "cosmos.staking.v1beta1.MsgCreateValidator" + "$")
+	if err != nil {
+		log.Fatalf("Failed to create regex message type filter. Err: %v", err)
+		return err
+	}
+	filters = append(filters, basicRegexMessageTypeFilter)
+
 	// Extend RefundMsgRequest parser
 	requestRegexMessageTypeFilter, err := filter.NewRegexMessageTypeFilter("^/" + rewardTypes.MSG_REWARD_REFUND_MSG_REQUEST + "$")
 	if err != nil {
@@ -56,6 +66,12 @@ func ExtendMessagesIndexer(instance *indexer.Indexer) error {
 		Indexer: instance,
 	}
 
+	// Add RegisterChainMaintainerRequest parser
+	customParsers["/"+nexusTypes.MSG_NEXUS_REGISTER_CHAIN_MAINTAINER_REQUEST] = &RegisterChainMaintainerRequestParser{
+		Id:      "register-chain-maintainer-request",
+		Indexer: instance,
+	}
+
 	for _, filter := range filters {
 		instance.RegisterMessageTypeFilter(filter)
 	}
@@ -69,6 +85,7 @@ func ExtendMessagesIndexer(instance *indexer.Indexer) error {
 			instance.ChainClient.Codec.InterfaceRegistry.RegisterInterface(rewardTypes.MSG_REWARD_REFUND_MSG_REQUEST, (*sdk.Msg)(nil), &rewardTypes.RefundMsgRequest{})
 			instance.ChainClient.Codec.InterfaceRegistry.RegisterInterface(voteTypes.MSG_VOTE_REQUEST, (*sdk.Msg)(nil), &voteTypes.VoteRequest{})
 			instance.ChainClient.Codec.InterfaceRegistry.RegisterInterface(evmTypes.MSG_EVM_VOTE_EVENTS, (*sdk.Msg)(nil), &evmTypes.VoteEvents{})
+			instance.ChainClient.Codec.InterfaceRegistry.RegisterInterface(nexusTypes.MSG_NEXUS_REGISTER_CHAIN_MAINTAINER_REQUEST, (*sdk.Msg)(nil), &nexusTypes.RegisterChainMaintainerRequest{})
 		}
 		return nil
 	}

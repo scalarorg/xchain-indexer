@@ -13,7 +13,7 @@ import (
 	dbTypes "github.com/scalarorg/xchains-indexer/db"
 	"github.com/scalarorg/xchains-indexer/db/models"
 	"github.com/scalarorg/xchains-indexer/rpc"
-	"github.com/scalarorg/xchains-indexer/util"
+	"github.com/scalarorg/xchains-indexer/utils"
 	"gorm.io/gorm"
 )
 
@@ -55,7 +55,7 @@ func GenerateBlockFileEnqueueFunction(db *gorm.DB, cfg config.IndexConfig, clien
 		}
 
 		// sort the data array
-		blocksToIndex = util.RemoveDuplicatesFromUint64Slice(blocksToIndex)
+		blocksToIndex = utils.RemoveDuplicatesFromUint64Slice(blocksToIndex)
 		sort.Slice(blocksToIndex, func(i, j int) bool { return blocksToIndex[i] < blocksToIndex[j] })
 
 		// Get latest block height and check to see if we are trying to index blocks outside range

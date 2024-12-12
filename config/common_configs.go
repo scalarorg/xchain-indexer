@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/scalarorg/xchains-indexer/util"
+	"github.com/scalarorg/xchains-indexer/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -69,19 +69,19 @@ func SetupThrottlingFlag(throttlingValue *float64, cmd *cobra.Command) {
 }
 
 func validateDatabaseConf(dbConf Database) error {
-	if util.StrNotSet(dbConf.Host) {
+	if utils.StrNotSet(dbConf.Host) {
 		return errors.New("database host must be set")
 	}
-	if util.StrNotSet(dbConf.Port) {
+	if utils.StrNotSet(dbConf.Port) {
 		return errors.New("database port must be set")
 	}
-	if util.StrNotSet(dbConf.Database) {
+	if utils.StrNotSet(dbConf.Database) {
 		return errors.New("database name (i.e. database) must be set")
 	}
-	if util.StrNotSet(dbConf.User) {
+	if utils.StrNotSet(dbConf.User) {
 		return errors.New("database user must be set")
 	}
-	if util.StrNotSet(dbConf.Password) {
+	if utils.StrNotSet(dbConf.Password) {
 		return errors.New("database password must be set")
 	}
 
@@ -89,7 +89,7 @@ func validateDatabaseConf(dbConf Database) error {
 }
 
 func validateProbeConf(probeConf Probe) (Probe, error) {
-	if util.StrNotSet(probeConf.RPC) {
+	if utils.StrNotSet(probeConf.RPC) {
 		return probeConf, errors.New("probe rpc must be set")
 	}
 	// add port if not set
@@ -101,13 +101,13 @@ func validateProbeConf(probeConf Probe) (Probe, error) {
 		}
 	}
 
-	if util.StrNotSet(probeConf.AccountPrefix) {
+	if utils.StrNotSet(probeConf.AccountPrefix) {
 		return probeConf, errors.New("probe account-prefix must be set")
 	}
-	if util.StrNotSet(probeConf.ChainID) {
+	if utils.StrNotSet(probeConf.ChainID) {
 		return probeConf, errors.New("probe chain-id must be set")
 	}
-	if util.StrNotSet(probeConf.ChainName) {
+	if utils.StrNotSet(probeConf.ChainName) {
 		return probeConf, errors.New("probe chain-name must be set")
 	}
 	return probeConf, nil

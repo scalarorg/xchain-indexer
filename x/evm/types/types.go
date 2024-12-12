@@ -14,7 +14,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
-	utils "github.com/scalarorg/xchains-indexer/util"
+	utils "github.com/scalarorg/xchains-indexer/utils"
 )
 
 const MSG_EVM_VOTE_EVENTS = "axelar.evm.v1beta1.VoteEvents"

@@ -29,6 +29,12 @@ type VoteEvents struct {
 	Events []Event                                                         `json:"events,omitempty"`
 }
 
+type RegisterChainMaintainerRequestValue struct {
+	Type   string                                                            `json:"@type,omitempty"`
+	Sender sdk.AccAddress                                                    `json:"sender,omitempty"`
+	Chains []github_com_axelarnetwork_axelar_core_x_nexus_exported.ChainName `json:"chains,omitempty"`
+}
+
 // type Event struct {
 // 	Chain  github_com_axelarnetwork_axelar_core_x_nexus_exported.ChainName `protobuf:"bytes,1,opt,name=chain,proto3,casttype=github.com/axelarnetwork/axelar-core/x/nexus/exported.ChainName" json:"chain,omitempty"`
 // 	TxID   Hash                                                            `protobuf:"bytes,2,opt,name=tx_id,json=txId,proto3,customtype=Hash" json:"tx_id"`

@@ -1,4 +1,4 @@
-package util
+package utils
 
 import (
 	"crypto/sha256"
@@ -11,8 +11,6 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"golang.org/x/text/unicode/norm"
 )
-
-const DefaultDelimiter = "_"
 
 // IndexOf returns the index of str in the slice; -1 if not found
 func IndexOf(strs []string, str string) int {

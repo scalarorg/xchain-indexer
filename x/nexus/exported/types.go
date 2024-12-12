@@ -13,8 +13,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	utils "github.com/scalarorg/xchains-indexer/util"
-	"github.com/scalarorg/xchains-indexer/util/slices"
+	utils "github.com/scalarorg/xchains-indexer/utils"
+	"github.com/scalarorg/xchains-indexer/utils/slices"
 )
 
 //go:generate moq -out ./mock/types.go -pkg mock . MaintainerState

@@ -5,7 +5,7 @@ package types
 
 import (
 	fmt "fmt"
-	utils "github.com/scalarorg/xchains-indexer/util"
+	utils "github.com/scalarorg/xchains-indexer/utils"
 	exported "github.com/scalarorg/xchains-indexer/x/nexus/exported"
 	github_com_axelarnetwork_axelar_core_x_nexus_exported "github.com/scalarorg/xchains-indexer/x/nexus/exported"
 	_ "github.com/gogo/protobuf/gogoproto"

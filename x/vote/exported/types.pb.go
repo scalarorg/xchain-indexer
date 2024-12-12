@@ -5,7 +5,7 @@ package exported
 
 import (
 	fmt "fmt"
-	utils "github.com/scalarorg/xchains-indexer/util"
+	utils "github.com/scalarorg/xchains-indexer/utils"
 	exported "github.com/scalarorg/xchains-indexer/x/snapshot/exported"
 	types "github.com/cosmos/cosmos-sdk/codec/types"
 	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"

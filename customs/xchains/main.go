@@ -16,6 +16,9 @@ func main() {
 	indexer.RegisterCustomModels([]any{
 		&common.TxMessage{},
 	})
+	// indexer.RegisterCustomModuleBasics([]module.AppModuleBasic{
+	// 	&nexus.AppModuleBasic{},
+	// })
 	messages.ExtendMessagesIndexer(indexer)
 	events.ExtendEventsIndexer(indexer)
 

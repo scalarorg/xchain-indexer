@@ -5,7 +5,7 @@ package exported
 
 import (
 	fmt "fmt"
-	utils "github.com/scalarorg/xchains-indexer/util"
+	utils "github.com/scalarorg/xchains-indexer/utils"
 	_ "github.com/cosmos/cosmos-sdk/codec/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"

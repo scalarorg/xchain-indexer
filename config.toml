@@ -14,7 +14,7 @@ pretty = true
 start-block = 1
 end-block = -1
 
-throttling = 6.00
+throttling = 0.5
 block-timer = 10000 #print out how long it takes to process this many blocks
 wait-for-chain = false #if true, indexer will start when the node is caught up to the blockchain
 wait-for-chain-delay = 10 #seconds to wait between each check for node to catch up to the chain
